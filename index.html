@@ -2,7 +2,7 @@
 <!-- saved from url=(0095)file:///E:/02%E8%AE%A2%E9%A4%90/SORL%E8%AE%A2%E9%A4%90%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SORL 订餐管理系统</title>
 <style>
 /* ── RESET & BASE ── */
@@ -710,77 +710,6 @@ body.entry-dragging .entry-tbl td[data-col]{cursor:crosshair}
   .entry-tbl th{padding-top:5px;padding-bottom:5px}
   .entry-tbl input.entry-num-inp{padding-top:4px;padding-bottom:4px}
 }
-
-/* ── MOBILE (≤768px) · 手机适配 ── */
-.menu-btn{display:none}
-#navBackdrop{display:none}
-@media screen and (max-width:768px){
-  :root{--nav-font:16px;--main-font:15px}
-  html{-webkit-text-size-adjust:100%}
-  body{font-size:15px}
-  body.nav-open{overflow:hidden}
-
-  /* 侧边栏 → 抽屉菜单 */
-  #sidebar{width:80vw;max-width:300px;transform:translateX(-105%);transition:transform .2s ease;padding-top:env(safe-area-inset-top)}
-  body.nav-open #sidebar{transform:none;box-shadow:4px 0 24px rgba(0,0,0,.35)}
-  #navBackdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:150}
-  body.nav-open #navBackdrop{display:block}
-  #main{margin-left:0;min-width:0;width:100%;max-width:100vw}
-  #app{overflow-x:hidden}
-  html,body{max-width:100%;overflow-x:hidden}
-  #topbarTitleArea{flex:1 1 calc(100% - 54px);min-width:0;flex-direction:column;align-items:flex-start;gap:4px;align-self:center}
-  #topbar h1{line-height:1.3}
-  #entryTopBar{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;width:100%;padding-left:0;min-width:0}
-  #entryStateBar{display:flex;flex:0 0 auto;white-space:nowrap}
-  #entryTopBar .dmk-legend{white-space:nowrap}
-  #entryTopBar .dmk-legend:last-child{display:none}
-  #mainDate{flex:1 1 140px;min-width:0}
-  #btnSave,#btnEdit,#btnExportExcel{flex:0 0 auto}
-  #loginOverlay>div{width:calc(100% - 32px)!important;padding:28px 20px!important}
-  .nav-a{padding:13px 16px;font-size:16px;gap:10px}
-  .nav-a svg{width:18px;height:18px}
-  .sidebar-logo{font-size:16px}
-
-  /* 顶栏 */
-  #topbar{padding:6px 10px;padding-top:calc(6px + env(safe-area-inset-top));gap:8px;flex-wrap:wrap;align-items:flex-start}
-  .menu-btn{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:42px;height:42px;border:1px solid var(--border2);border-radius:var(--radius);background:var(--surf);color:var(--text)}
-  #topbar h1{min-width:0;font-size:15px;white-space:normal}
-  .content{padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
-
-  /* 控件放大,便于手指点击;16px 防止 iOS 聚焦时自动放大页面 */
-  input,select,textarea{font-size:16px!important}
-  input[type=date],select,input[type=text],.form-input{padding:8px 10px!important;min-height:40px}
-  .btn{min-height:40px;padding:8px 12px;font-size:14px}
-  .btn-sm{min-height:36px;font-size:13px}
-  .btn-xs{min-height:32px}
-  .toolbar{gap:6px}
-  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
-
-  /* 每日录入:汇总卡横向滑动,表格内部滚动,部门列固定在左侧 */
-  #page-entry.active{height:auto}
-  #page-entry #entryPrintSheet{display:block}
-  #page-entry #entryPrintSheet .tbl-wrap{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
-  .entry-summary{display:flex!important;overflow-x:auto;gap:6px;margin-bottom:8px;padding-bottom:2px}
-  .entry-box{flex:0 0 150px;flex-direction:column;gap:4px}
-  .entry-box-copy{border-left:none;border-top:1px dashed var(--border2);padding:4px 0 0}
-  .entry-box-copy-text{display:none}
-  .entry-box-copy-btn{align-self:stretch;min-height:34px;font-size:13px}
-  .entry-tbl .th-idx-col,.entry-tbl td.td-idx{width:26px;min-width:26px;position:-webkit-sticky;position:sticky;left:0;z-index:3}
-  .entry-tbl .th-idx-col{z-index:32}
-  .entry-tbl .th-dept-col{min-width:92px;position:-webkit-sticky;position:sticky;left:26px;z-index:32;box-shadow:3px 0 5px -1px rgba(0,0,0,.35)}
-  .entry-tbl td.td-dept{min-width:92px;max-width:104px;position:-webkit-sticky;position:sticky;left:26px;z-index:3;box-shadow:3px 0 5px -1px rgba(0,0,0,.28)}
-  .entry-tbl td.td-dept .dept-zh{font-size:13px}
-  .entry-tbl td.td-dept .dept-en{font-size:11px}
-  .entry-tbl input.entry-num-inp{width:54px;font-size:18px!important;padding:11px 2px!important}
-
-  /* 其他报表:表格在容器内左右滑动 */
-  .tbl-wrap,.order-view-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .settings-grid{grid-template-columns:1fr}
-
-  /* 弹窗 */
-  .modal{min-width:0;width:94%;max-height:90dvh;overflow:auto;padding:14px}
-  .modal-footer{flex-wrap:wrap}
-}
 </style>
 </head>
 <body class="">
@@ -1132,6 +1061,18 @@ VIP 晚餐	53</pre>
 <!-- ██ SETTINGS ██ -->
 <div class="page" id="page-settings">
   <div class="settings-grid">
+    <div class="card" style="grid-column:1/-1">
+      <div class="card-header">🔐 管理员密码 / Administrator Password</div>
+      <div class="card-body">
+        <p style="font-size:12.5px;color:var(--text2);line-height:1.6;margin:0 0 12px">密码以 PBKDF2-SHA-256 加随机盐保存，不再以明文写入本机数据库和新备份。建议使用独有的长口令；遗忘后无法找回。更改密码后，新备份使用新密码，旧备份仍需旧密码。<br>Password is stored as a salted PBKDF2-SHA-256 verifier, not plaintext. Use a unique passphrase of at least 15 characters. New backups use the new password after a change; older backups still require the old password.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;align-items:end">
+          <label style="font-size:12px">当前密码 / Current password<input id="adminCurrentPassword" type="password" autocomplete="current-password" maxlength="128" class="form-input" style="display:block;width:100%;margin-top:4px"></label>
+          <label style="font-size:12px">新密码 / New password<input id="adminNewPassword1" type="password" autocomplete="new-password" maxlength="128" class="form-input" style="display:block;width:100%;margin-top:4px"></label>
+          <label style="font-size:12px">确认新密码 / Confirm<input id="adminNewPassword2" type="password" autocomplete="new-password" maxlength="128" class="form-input" style="display:block;width:100%;margin-top:4px"></label>
+          <button class="btn btn-primary" onclick="changeAdminPassword()">更新管理员密码 / Update password</button>
+        </div>
+      </div>
+    </div>
     <!-- Meal Types -->
     <div class="card">
       <div class="card-header">
@@ -1202,56 +1143,33 @@ VIP 晚餐	53</pre>
       <div class="card-body">
         <p style="font-size:12.5px;color:var(--text2);margin-bottom:14px;line-height:1.6">
           选择之前导出的 JSON 备份文件进行恢复。<br>
+          加密备份必须使用创建备份时的管理员密码；忘记该密码后无法解密恢复。<br>
           <strong style="color:var(--red)">注意 Warning：恢复会覆盖现有数据！Restore will overwrite existing data!</strong><br>
           Select a backup JSON file to restore all data.
         </p>
-        <input type="file" id="backupFile" accept=".json,application/json,text/plain,application/octet-stream,*/*" onchange="importBackup(this)" style="display:none">
+        <input type="file" id="backupFile" accept=".json" onchange="importBackup(this)" style="display:none">
         <button class="btn btn-warning" onclick="document.getElementById(&#39;backupFile&#39;).click()" style="width:100%">📂 选择文件 / Select File</button>
       </div>
     </div>
 
-    <div class="card" style="grid-column:1/-1;border-left:3px solid var(--gh)">
-      <div class="card-header">🕐 自动备份设置 / Automatic Backup Settings</div>
-      <div class="card-body" id="autoBackupPanel">
-      <p style="font-size:12.5px;color:var(--red);line-height:1.6">⚠️ 当前浏览器（如 Brave）不支持写入指定文件夹的自动备份（需要 Chrome 或 Edge 浏览器的 File System Access API）。<br>
-      This browser (e.g. Brave) doesn't support folder-writing auto backup (needs Chrome/Edge's File System Access API).</p>
-      <div style="display:flex;align-items:center;gap:10px;margin:12px 0">
-        <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
-          <input type="checkbox" id="fallbackBackupCk" checked="" onchange="toggleFallbackAutoBackup(this.checked)">
-          启用「下载兜底备份」/ Enable Download Fallback Backup
-        </label>
-      </div>
-      <p style="font-size:12px;color:var(--text2);line-height:1.7">
-        开启后，系统会在每天 <b>11:25</b> 和 <b>17:25</b>（页面需保持打开，缺失的会在当天下次打开页面时补做）自动把备份文件下载到浏览器默认下载文件夹，无需选择文件夹、无需授权弹窗。文件名类似 <code>SORL_meal_backup_2026-08-19_112500_am.json</code>。<br>
-        Once enabled, backups auto-download to your browser's default Downloads folder at 11:25 and 17:25 daily (tab must be open; a missed slot is caught up next time the page opens that day) — no folder picker or permission prompt needed.<br>
-        ⚠️ 与 Chrome/Edge 方案不同：这里<b>无法自动清理旧文件</b>，Downloads 文件夹会逐渐堆积，请定期手动清理。<br>
-        ⚠️ Unlike the Chrome/Edge version, old files here <b>cannot be auto-deleted</b> — please clean up your Downloads folder periodically.<br>
-        📌 上次自动备份 Last auto backup: <b>2026/9/11 17:25:35</b>
-      </p>
-      <button class="btn" onclick="doFallbackAutoBackup(&#39;manual&#39;)">🧪 立即测试下载备份 / Test Download Backup Now</button>
-      <p style="font-size:11.5px;color:var(--text3);margin-top:10px">也可继续使用上方「导出备份」手动备份。/ You can also keep using manual "Export Backup" above.</p>
-    </div>
-    </div>
-
     <div class="card" style="grid-column:1/-1;border-left:3px solid var(--vip,#8b5cf6)">
-      <div class="card-header">🖥️ 本地服务器自动备份（推荐，免每日授权）/ Local Server Auto-Backup (Recommended, No Daily Re-auth)</div>
+      <div class="card-header">🖥️ 本机定时备份 / Local Computer Scheduled Backup</div>
       <div class="card-body" id="localServerBackupPanel">
     <p style="font-size:12.5px;color:var(--text2);line-height:1.7;margin-bottom:10px">
-      🌟 在电脑上运行一个小型本地服务（随本系统附带的 <code>sorl_backup_server.py</code>），网页通过普通网络请求自动把数据发给它写入文件 —— 不经过浏览器的文件夹选择器/权限系统，因此<b>永远不会跳出"需要重新授权"</b>。<br>
-      Run a small local service on this PC (the included <code>sorl_backup_server.py</code>). The page sends data to it over a normal network request and it writes the file directly — this bypasses the browser's folder-picker permission system entirely, so it will <b>never</b> ask you to re-authorize.<br>
+      🌟 本地服务只保存网页加密后的备份包，服务端不持有解密口令。登录网页时自动使用管理员密码加密和同步备份，无需单独解锁。<br>
+      The local service stores only encrypted backup envelopes and never receives the decryption passphrase. The authenticated administrator session unlocks backups automatically; the local service receives ciphertext only.<br>
       💡 每次保存数据都会实时同步一份最新数据给它，本地服务自己按 11:25 / 17:25 打包成正式备份 —— 所以<b>就算到点时这个网页没开着，只要电脑开机、本地服务在后台运行，备份依然会自动完成</b>。<br>
       Every save also syncs the latest data to it in real time; the local service snapshots it into a timestamped backup on its own at 11:25 / 17:25 — so <b>backups still happen automatically even if this page isn't open at that exact moment</b>, as long as the PC is on and the local service is running in the background.
     </p>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
       <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
-        <input type="checkbox" id="localServerEnabledCk" checked="" onchange="toggleLocalServerEnabled(this.checked)">
+        <input type="checkbox" id="localServerEnabledCk" onchange="toggleLocalServerEnabled(this.checked)">
         启用本地服务器自动备份 / Enable Local Server Auto-Backup
       </label>
     </div>
-    <p style="font-size:12.5px;color:var(--gh)">✓ 已连接本地备份服务 Connected — http://127.0.0.1:8787</p>
+    <p style="font-size:12.5px;color:var(--text2)">正在检查本机备份服务 / Checking local backup service…</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
       <input id="localServerUrlInput" value="http://127.0.0.1:8787" placeholder="http://127.0.0.1:8787" style="flex:1;min-width:200px;padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12.5px">
-      <input id="localServerTokenInput" value="" placeholder="密钥 Token（可选 optional）" style="width:170px;padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12.5px">
       <button class="btn" onclick="saveLocalServerSettings()">💾 保存 Save</button>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -1259,9 +1177,9 @@ VIP 晚餐	53</pre>
       <button class="btn btn-primary" onclick="doLocalServerBackup(&#39;manual&#39;).then(()=&gt;renderLocalServerPanel())">📤 立即备份一次 / Backup Now</button>
     </div>
     <p style="font-size:11.5px;color:var(--text3);margin-top:10px;line-height:1.7">
-      📌 上次自动备份 Last auto backup: <b>2026/9/11 17:25:35</b> (本地服务器 local server)<br>
-      ⚙️ 配置与开机自启方法见随附的 <code>sorl_backup_server.py</code> 顶部注释说明。<br>
-      Setup and auto-start-on-login instructions are in the comment block at the top of the accompanying <code>sorl_backup_server.py</code>.
+      📌 最新备份时间从本机备份文件夹读取 / Latest backup time is read from the local backup folder.<br>
+      🌐 本机备份服务运行后，请通过 <a href="http://127.0.0.1:8787/app">http://127.0.0.1:8787/app</a> 打开系统。<br>
+      ⚙️ 启动和开机自启说明见随附的 <code>sorl_backup_server.py</code> 顶部注释 / Setup and auto-start instructions are at the top of <code>sorl_backup_server.py</code>.
     </p>
   </div>
     </div>
@@ -1281,13 +1199,13 @@ VIP 晚餐	53</pre>
             1. 用浏览器打开本 HTML 文件<br>
             2. 进入「备份恢复 Backup」页<br>
             3. 点击「选择文件 Select File」，选择 .json 备份文件<br>
-            4. 所有数据即刻恢复，10年数据安全迁移 ✓
+            4. 加密备份需要创建备份时使用的管理员密码；验证通过后恢复数据。
           </div>
         </div>
         <div style="margin-top:10px;padding:8px 12px;background:#ecfdf5;border-radius:5px;border:1px solid #86efac;color:#14532d;font-size:11.5px">
-          💡 <strong>长期使用建议 / Long-term Tips:</strong>
-          每月1日导出备份 → 保存到云盘（Google Drive / OneDrive）→ 10年、20年数据永远不丢失<br>
-          Monthly export on the 1st → Save to cloud (Google Drive/OneDrive) → Data safe for 10–20 years
+          💡 <strong>长期备份建议 / Backup tip:</strong>
+          定期导出备份并另存到其他设备或云盘。加密备份必须使用创建时的管理员密码才能恢复。<br>
+          Export backups periodically and keep another copy on a separate device or cloud storage. Encrypted backups require the administrator password used when created.
         </div>
       </div>
     </div>
@@ -1296,6 +1214,21 @@ VIP 晚餐	53</pre>
       <div class="card-body" id="dataStats"></div>
     </div>
     
+    <div class="card" style="grid-column:1/-1;border:1px solid #d97706;background:#fffbeb">
+      <div class="card-header" style="background:#d97706;color:#fff">📅 年度结转 / Year-End Rollover</div>
+      <div class="card-body">
+        <p style="font-size:12.5px;color:#92400e;margin-bottom:14px;line-height:1.7">
+          每年年底使用：<b>清除所有历史订餐记录</b>（每日录入、汇总、VIP备注、录入标记），<b>保留</b>部门、餐别、供应商价格、管理员密码等所有设置。<br>
+          点击后系统会<b>先自动下载一份完整备份文件</b>，确认保存好后才会清除。<br>
+          Clears all history records but keeps depts, meal types, prices and password. A full backup is downloaded first.
+        </p>
+        <div style="display:flex;gap:12px;align-items:center">
+          <input type="password" id="rolloverPasswordInput" placeholder="请输入管理员密码 / Admin Password" style="flex:1;padding:10px;border:1.5px solid #d97706;border-radius:6px;font-size:14px">
+          <button class="btn" onclick="confirmYearEndRollover()" style="white-space:nowrap;background:#d97706;color:#fff;border-color:#d97706">年度结转 / Year-End Rollover</button>
+        </div>
+      </div>
+    </div>
+
     <div class="card" style="grid-column:1/-1;border:1px solid var(--red);background:#fff1f2">
       <div class="card-header" style="background:var(--red);color:#fff">⚠️ 系统初始化 / System Factory Reset</div>
       <div class="card-body">
@@ -1343,29 +1276,30 @@ VIP 晚餐	53</pre>
     <div style="font-size:24px;font-weight:800;color:var(--sidebar-bg);margin-bottom:8px">SORL 订餐系统</div>
     <div style="font-size:14px;color:var(--text3);margin-bottom:30px">请登录以继续 / Please Login to Continue</div>
     
-    <div id="loginForm">
+    <form id="loginForm" autocomplete="on">
       <div style="text-align:left;margin-bottom:16px">
         <label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text2)">用户名 / USERNAME</label>
-        <input type="text" id="loginUser" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" placeholder="Admin" value="Admin">
+        <input type="text" id="loginUser" name="username" autocomplete="username" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" placeholder="Admin" value="Admin">
       </div>
       <div style="text-align:left;margin-bottom:24px">
         <label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text2)">密码 / PASSWORD</label>
-        <input type="password" id="loginPass" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" placeholder="••••••••" onkeydown="if(event.key===&#39;Enter&#39;)attemptLogin()">
+        <input type="password" id="loginPass" name="current-password" autocomplete="current-password" maxlength="128" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" placeholder="••••••••">
       </div>
-      <button class="btn btn-primary" style="width:100%;padding:14px;font-size:16px;justify-content:center" onclick="attemptLogin()">登 录 / LOGIN</button>
-    </div>
+      <button class="btn btn-primary" type="submit" style="width:100%;padding:14px;font-size:16px;justify-content:center">登 录 / LOGIN</button>
+    </form>
 
     <div id="changePassForm" style="display:none">
       <div style="background:var(--red-bg);color:var(--red);padding:12px;border-radius:6px;font-size:13px;margin-bottom:20px;text-align:left;line-height:1.4">
-        当前密码为默认值：Andrew<br>Default password is currently set to Andrew.
+        首次登录必须设置新密码。建议使用至少 15 位、容易记住但不重复使用的长口令。<br>Set a new password to continue. Use a unique passphrase of at least 15 characters.
       </div>
       <div style="text-align:left;margin-bottom:16px">
         <label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text2)">新密码 / NEW PASSWORD</label>
-        <input type="password" id="newPass1" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" onkeydown="if(event.key===&#39;Enter&#39;)commitChangePass()">
+        <input type="password" id="newPass1" autocomplete="new-password" maxlength="128" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" onkeydown="if(event.key===&#39;Enter&#39;)commitChangePass()">
+        <small style="display:block;color:var(--text3);margin-top:5px">至少15个字符，可使用空格和任意字符；密码区分大小写，首尾空格也会保留。</small>
       </div>
       <div style="text-align:left;margin-bottom:24px">
         <label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text2)">确认新密码 / CONFIRM PASSWORD</label>
-        <input type="password" id="newPass2" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" onkeydown="if(event.key===&#39;Enter&#39;)commitChangePass()">
+        <input type="password" id="newPass2" autocomplete="new-password" maxlength="128" style="width:100%;padding:12px;border:1.5px solid var(--border);border-radius:6px;font-size:16px" onkeydown="if(event.key===&#39;Enter&#39;)commitChangePass()">
       </div>
       <button id="commitChangePassBtn" class="btn btn-success" style="width:100%;padding:14px;font-size:16px;justify-content:center" type="button">修改并登录 / Update &amp; Login</button>
     </div>
@@ -1423,63 +1357,114 @@ document.addEventListener('wheel', function(e){
 // ════════════════════════════════════════════════════════════
 // DB & DEFAULTS
 // ════════════════════════════════════════════════════════════
-const DEFAULT_ADMIN_PASSWORD = 'Andrew';
+const ADMIN_PASSWORD_ITERATIONS=600000;
+const ADMIN_LOGIN_LIMIT_KEY='sorl_admin_login_limit_v1';
 let IS_AUTH = false;
-function checkAuth(){
-  if(IS_AUTH) return;
-  const overlay = document.getElementById('loginOverlay');
-  if(overlay) overlay.style.display = 'flex';
+function _authCrypto(){if(!window.crypto?.subtle||!window.crypto.getRandomValues)throw new Error('此浏览器不支持安全密码校验，请升级浏览器');return window.crypto;}
+async function _deriveAdminPassword(pass,salt,iterations=ADMIN_PASSWORD_ITERATIONS){
+  const c=_authCrypto(),material=await c.subtle.importKey('raw',new TextEncoder().encode(pass.normalize('NFC')),'PBKDF2',false,['deriveBits']);
+  return new Uint8Array(await c.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,iterations},material,256));
 }
-function attemptLogin(){
-  const userEl = document.getElementById('loginUser');
-  const passEl = document.getElementById('loginPass');
-  if(!userEl || !passEl) return;
-  const user = userEl.value.trim();
-  const pass = passEl.value;
-  if(user !== 'Admin'){ toast('❌ 用户名错误 / Invalid Username'); return; }
-  if(pass !== DB.settings.auth.password){ toast('❌ 密码错误 / Invalid Password'); return; }
-  
-  if(DB.settings.auth.needChange){
-    const loginForm = document.getElementById('loginForm');
-    const changePassForm = document.getElementById('changePassForm');
-    if(loginForm) loginForm.style.display = 'none';
-    if(changePassForm) changePassForm.style.display = 'block';
-    const newPass1 = document.getElementById('newPass1');
-    if(newPass1) { newPass1.focus(); newPass1.select(); }
-  } else {
-    finishAuth();
+async function _storeAdminPassword(pass){
+  const c=_authCrypto(),salt=c.getRandomValues(new Uint8Array(16)),bits=await _deriveAdminPassword(pass,salt);
+  const auth=DB.settings.auth;auth.passwordRecord={scheme:'PBKDF2-SHA-256',iterations:ADMIN_PASSWORD_ITERATIONS,salt:_toB64(salt),hash:_toB64(bits)};auth.backupKdfSalt=_toB64(c.getRandomValues(new Uint8Array(16)));delete auth.password;try{_sorlBackupCryptoCache=null;}catch(e){}
+}
+async function _verifyAdminPassword(pass){
+  const auth=DB.settings.auth||{};const rec=auth.passwordRecord;
+  if(!rec)return typeof auth.password==='string'&&pass===auth.password;
+  if(rec.scheme!=='PBKDF2-SHA-256'||!Number.isInteger(rec.iterations)||rec.iterations<100000||rec.iterations>1000000)return false;
+  const salt=_fromB64(rec.salt),expected=_fromB64(rec.hash);if(salt.length!==16||expected.length!==32)return false;
+  const actual=await _deriveAdminPassword(pass,salt,rec.iterations);let diff=0;for(let i=0;i<expected.length;i++)diff|=actual[i]^expected[i];return diff===0;
+}
+function _adminLockRemaining(){try{const v=JSON.parse(localStorage.getItem(ADMIN_LOGIN_LIMIT_KEY)||'null');return v&&v.until>Date.now()?v.until-Date.now():0;}catch(e){return 0;}}
+function _recordAdminLoginFailure(){try{const old=JSON.parse(localStorage.getItem(ADMIN_LOGIN_LIMIT_KEY)||'null')||{count:0};const count=(old.count||0)+1;const wait=count<5?0:Math.min(300000,30000*Math.pow(2,count-5));localStorage.setItem(ADMIN_LOGIN_LIMIT_KEY,JSON.stringify({count,until:Date.now()+wait}));return wait;}catch(e){return 0;}}
+function _clearAdminLoginFailures(){try{localStorage.removeItem(ADMIN_LOGIN_LIMIT_KEY);}catch(e){}}
+function _passwordPolicyError(pass){
+  const n=Array.from(pass).length;if(n<15)return '密码至少需要15个字符';if(n>128)return '密码不能超过128个字符';
+  if(!pass.trim())return '密码不能全为空格';
+  if(['admin','administrator','andrew','sorl888','password','password123','123456789012345','qwerty123456789'].includes(pass.toLowerCase()))return '不能使用常见或初始密码';
+  return '';
+}
+function checkAuth(){if(IS_AUTH)return;const overlay=document.getElementById('loginOverlay');if(overlay)overlay.style.display='flex';}
+async function _bootstrapFromLocalLatest(pass){
+  // A file:// page and its localhost copy have separate browser storage. On a
+  // fresh localhost origin, migrate the encrypted latest backup after the
+  // user proves the existing admin password. The old file-origin data remains
+  // untouched, so a missing/stale latest file cannot destroy the old copy.
+  if(!pass||!['localhost','127.0.0.1'].includes(location.hostname)||location.port!=='8787')return 'none';
+  try{
+    const res=await fetch('/latest',{cache:'no-store',credentials:'same-origin'});
+    if(res.status===404)return 'none';
+    if(!res.ok)return 'unavailable';
+    const envelope=await res.json();
+    if(envelope?.format!==SORL_ENCRYPTED_BACKUP_TYPE)return 'unavailable';
+    const data=await _decryptBackup(envelope,pass);
+    if(!data||typeof data!=='object'||!data.settings||typeof data.settings!=='object'||!data.daily||typeof data.daily!=='object')return 'unavailable';
+    const previousDB=DB;
+    _applyRawDB(data);
+    if(!await _verifyAdminPassword(pass)){DB=previousDB;return 'mismatch';}
+    try{localStorage.setItem(LOCAL_SERVER_URL_KEY,location.origin);localStorage.setItem(LOCAL_SERVER_ENABLED_KEY,'1');}catch(e){}
+    if(!await saveDB()){DB=previousDB;return 'unavailable';}
+    return 'restored';
+  }catch(err){
+    return /口令错误|备份文件已损坏/.test(err?.message||'')?'mismatch':'unavailable';
   }
 }
-function commitChangePass(){
-  const newPass1 = document.getElementById('newPass1');
-  const newPass2 = document.getElementById('newPass2');
-  if(!newPass1 || !newPass2) return;
-
-  const p1 = newPass1.value.trim();
-  const p2 = newPass2.value.trim();
-  if(!p1){ toast('请输入新密码 / Please enter new password'); newPass1.focus(); return; }
-  if(p1.length < 4){ toast('密码太短 / Password too short'); newPass1.focus(); return; }
-  if(p1 !== p2){ toast('两次输入不一致 / Passwords do not match'); newPass2.focus(); return; }
-  if(p1 === 'SORL888'){ toast('不能使用初始密码 / Cannot use default password'); newPass1.focus(); return; }
-  
-  DB.settings.auth.password = p1;
-  DB.settings.auth.needChange = false;
-  saveDB();
-  finishAuth();
+async function attemptLogin(){
+  const userEl=document.getElementById('loginUser'),passEl=document.getElementById('loginPass');if(!userEl||!passEl)return;
+  const wait=_adminLockRemaining();if(wait>0){toast('登录暂时锁定，请 '+Math.ceil(wait/1000)+' 秒后再试 / Please wait before trying again');return;}
+  try{
+    const user=userEl.value.trim(),pass=passEl.value;let auth=DB.settings.auth;
+    if(user!=='Admin'){
+      const ms=_recordAdminLoginFailure();toast(ms?'登录失败次数过多，已暂时锁定 / Too many failures; login temporarily locked':'用户名或密码错误 / Invalid username or password');return;
+    }
+    if(!auth.passwordRecord&&!auth.password&&pass){
+      const bootstrap=await _bootstrapFromLocalLatest(pass);
+      if(bootstrap==='restored')auth=DB.settings.auth;
+      else if(bootstrap==='mismatch'){
+        const ms=_recordAdminLoginFailure();toast(ms?'备份密码错误，已暂时锁定 / Incorrect backup password; temporarily locked':'管理员密码错误，无法读取本机最新备份 / Incorrect admin password; latest local backup could not be opened');return;
+      }
+    }
+    if(!auth.passwordRecord&&!auth.password){
+      _clearAdminLoginFailures();const loginForm=document.getElementById('loginForm'),changeForm=document.getElementById('changePassForm');if(loginForm)loginForm.style.display='none';if(changeForm)changeForm.style.display='block';const p=document.getElementById('newPass1');if(p)p.focus();toast('首次使用：请创建管理员密码 / First setup: create an administrator password');return;
+    }
+    if(!await _verifyAdminPassword(pass)){
+      const ms=_recordAdminLoginFailure();toast(ms?'登录失败次数过多，已暂时锁定 / Too many failures; login temporarily locked':'用户名或密码错误 / Invalid username or password');return;
+    }
+    _clearAdminLoginFailures();_sorlBackupPassphrase=pass;_syncLoginNoticeShown=false;
+    if(!auth.passwordRecord){const legacy=auth.password;await _storeAdminPassword(pass);if(!await saveDB()){auth.password=legacy;delete auth.passwordRecord;toast('密码升级未能保存，请检查本机存储空间 / Password upgrade could not be saved');return;}}
+    if(!auth.backupKdfSalt){auth.backupKdfSalt=_toB64(_authCrypto().getRandomValues(new Uint8Array(16)));if(!await saveDB()){toast('加密备份初始化失败，请检查本机存储 / Could not initialize encrypted backups');return;}}
+    if(auth.needChange){const loginForm=document.getElementById('loginForm'),changeForm=document.getElementById('changePassForm');if(loginForm)loginForm.style.display='none';if(changeForm)changeForm.style.display='block';const p=document.getElementById('newPass1');if(p){p.focus();p.select();}}
+    else finishAuth();
+  }catch(err){console.error('Admin login failed:',err);toast('登录校验失败 / Login verification failed: '+err.message);}
 }
-function finishAuth(){
-  IS_AUTH = true;
-  const overlay = document.getElementById('loginOverlay');
-  if(overlay) overlay.style.display = 'none';
-  toast('✅ 登录成功 / Login Successful');
-  initApp();
+async function commitChangePass(){
+  const f1=document.getElementById('newPass1'),f2=document.getElementById('newPass2');if(!f1||!f2)return;
+  const p1=f1.value,p2=f2.value;if(!p1){toast('请输入新密码 / Please enter a new password');f1.focus();return;}
+  const policy=_passwordPolicyError(p1);if(policy){toast(policy);f1.focus();return;}if(p1!==p2){toast('两次输入不一致 / Passwords do not match');f2.focus();return;}
+  const previous={...DB.settings.auth},previousKeyPass=_sorlBackupPassphrase;
+  try{await _storeAdminPassword(p1);DB.settings.auth.needChange=false;_sorlBackupPassphrase=p1;_syncLoginNoticeShown=false;if(!await saveDB()){DB.settings.auth=previous;_sorlBackupPassphrase=previousKeyPass;toast('密码保存失败，原密码保持有效 / Save failed; previous password remains active');return;}f1.value='';f2.value='';finishAuth();}
+  catch(err){DB.settings.auth=previous;_sorlBackupPassphrase=previousKeyPass;toast('密码设置失败 / Could not set password: '+err.message);}
 }
+async function changeAdminPassword(){
+  const current=document.getElementById('adminCurrentPassword'),f1=document.getElementById('adminNewPassword1'),f2=document.getElementById('adminNewPassword2');if(!current||!f1||!f2)return;
+  const previous={...DB.settings.auth},previousKeyPass=_sorlBackupPassphrase;
+  try{
+    if(!await _verifyAdminPassword(current.value)){toast('当前密码错误 / Current password is incorrect');return;}
+    const p1=f1.value,p2=f2.value,policy=_passwordPolicyError(p1);if(policy){toast(policy);f1.focus();return;}if(p1!==p2){toast('两次输入不一致 / Passwords do not match');f2.focus();return;}
+    if(await _verifyAdminPassword(p1)){toast('新密码必须与当前密码不同 / Choose a different password');return;}
+    await _storeAdminPassword(p1);DB.settings.auth.needChange=false;_sorlBackupPassphrase=p1;_syncLoginNoticeShown=false;
+    if(!await saveDB()){DB.settings.auth=previous;_sorlBackupPassphrase=previousKeyPass;toast('密码保存失败，原密码保持有效 / Save failed; previous password remains active');return;}
+    current.value='';f1.value='';f2.value='';toast('✓ 管理员密码已安全更新 / Administrator password updated');
+  }catch(err){DB.settings.auth=previous;_sorlBackupPassphrase=previousKeyPass;toast('密码更新失败 / Password update failed: '+err.message);}
+}
+function finishAuth(){IS_AUTH=true;const overlay=document.getElementById('loginOverlay');if(overlay)overlay.style.display='none';toast('✅ 登录成功 / Login Successful');initApp();}
 
 function bindPasswordLoginEvents(){
-  const loginBtn = document.querySelector('#loginForm button');
+  const loginForm = document.getElementById('loginForm');
   const changeBtn = document.getElementById('commitChangePassBtn');
-  if(loginBtn){
-    loginBtn.onclick = function(e){ e.preventDefault(); attemptLogin(); };
+  if(loginForm){
+    loginForm.addEventListener('submit',function(e){e.preventDefault();attemptLogin();});
   }
   if(changeBtn){
     changeBtn.onclick = function(e){ e.preventDefault(); commitChangePass(); };
@@ -1540,8 +1525,8 @@ let DB = {
     depts: [...DEFAULT_DEPTS],
     deptOrder: null,
     auth: {
-      password: DEFAULT_ADMIN_PASSWORD,
-      needChange: false
+      password: null,
+      needChange: true
     }
   },
   daily: {},
@@ -1585,47 +1570,51 @@ function idbGet(key){
 function idbSet(key, value){
   return openIDB().then(db => new Promise((resolve, reject)=>{
     const tx  = db.transaction(IDB_STORE,'readwrite');
-    const req = tx.objectStore(IDB_STORE).put(value, key);
-    req.onsuccess = ()=> resolve();
-    req.onerror   = ()=> reject(req.error);
+    tx.oncomplete = ()=> resolve();
+    tx.onerror    = ()=> reject(tx.error || new Error('IndexedDB write failed'));
+    tx.onabort    = ()=> reject(tx.error || new Error('IndexedDB write aborted'));
+    tx.objectStore(IDB_STORE).put(value, key);
   }));
 }
 
 function idbDel(key){
   return openIDB().then(db => new Promise((resolve, reject)=>{
     const tx  = db.transaction(IDB_STORE,'readwrite');
-    const req = tx.objectStore(IDB_STORE).delete(key);
-    req.onsuccess = ()=> resolve();
-    req.onerror   = ()=> reject(req.error);
+    tx.oncomplete = ()=> resolve();
+    tx.onerror    = ()=> reject(tx.error || new Error('IndexedDB delete failed'));
+    tx.onabort    = ()=> reject(tx.error || new Error('IndexedDB delete aborted'));
+    tx.objectStore(IDB_STORE).delete(key);
   }));
 }
 
-// saveDB — async write to IndexedDB + sync mirror to localStorage
+// saveDB — commit to IndexedDB first, then refresh the localStorage mirror
 function saveDB(){
   const json = JSON.stringify(DB);
-  // Fast synchronous mirror (best-effort, may fail if > 5 MB)
-  try{ localStorage.setItem('sorl_v2', json); }catch(e){}
   // Primary persistent store
-  idbSet(IDB_KEY, json).catch(err=>{
+  return idbSet(IDB_KEY, json).then(()=>{
+    // Best-effort mirror for fast startup and recovery (may exceed localStorage quota).
+    try{ localStorage.setItem('sorl_v2', json); }catch(e){}
+    syncLatestToServer();
+    return true;
+  }).catch(err=>{
     console.error('IndexedDB write failed:', err);
     toast('⚠️ 存储写入异常，请立即导出备份 / Storage error – export backup now!');
+    return false;
   });
-  // Best-effort real-time mirror to the local backup server (if configured).
-  // This lets sorl_backup_server.py always hold a fresh copy of the data,
-  // so it can make its own 11:25/17:25 snapshots even if this page isn't
-  // open at that exact moment — see syncLatestToServer() below.
-  syncLatestToServer();
 }
 
 // _applyRawDB — validate and normalise a parsed DB object
 function _applyRawDB(parsed){
   if(parsed && typeof parsed === 'object') DB = parsed;
   if(!DB.settings) DB.settings={};
-  if(!DB.settings.auth) DB.settings.auth = { password: DEFAULT_ADMIN_PASSWORD, needChange: false };
-  if(!DB.settings.auth.password || DB.settings.auth.password === 'SORL888') {
-    DB.settings.auth.password = DEFAULT_ADMIN_PASSWORD;
+  if(!DB.settings.auth) DB.settings.auth={password:null,needChange:true};
+  const auth=DB.settings.auth;
+  if(auth.passwordRecord){delete auth.password;auth.needChange=!!auth.needChange;}
+  else {
+    if(typeof auth.password!=='string'||!auth.password||auth.password==='SORL888'){auth.password=null;auth.needChange=true;}
+    else if(_passwordPolicyError(auth.password))auth.needChange=true;
+    else auth.needChange=!!auth.needChange;
   }
-  DB.settings.auth.needChange = false;
   if(!DB.settings.mealTypes||!DB.settings.mealTypes.length) DB.settings.mealTypes=[...DEFAULT_MEAL_TYPES];
   if(!DB.settings.suppliers||!DB.settings.suppliers.length) DB.settings.suppliers=JSON.parse(JSON.stringify(DEFAULT_SUPPLIERS));
   if(!DB.settings.depts||!DB.settings.depts.length) DB.settings.depts=[...DEFAULT_DEPTS];
@@ -1667,7 +1656,6 @@ function ensureVipNotes(date){
 }
 function getVipSummaryRemark(date){ return ensureVipNotes(date).summary||''; }
 function setVipSummaryRemark(date,v){ ensureVipNotes(date).summary=v; saveDB(); }
-function getVipReceiptRemark(date,mKey){ return ensureVipNotes(date)[mKey]?.receiptRemark||''; }
 function setVipReceiptRemark(date,mKey,v){ ensureVipNotes(date)[mKey].receiptRemark=v; saveDB(); }
 function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
 function migrateDepts(){
@@ -1800,12 +1788,6 @@ function evalMealFormula(expr){
   if(result===null || !isFinite(result)) return null;
   return result;
 }
-function getDayTotal(date){ 
-  let t=0;
-  Depts().forEach(d=>MTs().forEach(m=>t+=getVal(date,deptId(d),m.key)));
-  return t;
-}
-
 /** 精准求和函数 / Precise Summation */
 function sumArr(arr) {
   if (!Array.isArray(arr)) return 0;
@@ -2058,7 +2040,7 @@ function nav(p){
   if(p==='monthly'){ populateMonthSels(); renderMonthly(); }
   if(p==='query'){ populateQueryFilters(); }
   if(p==='settings') renderSettings();
-  if(p==='backup'){ renderDataStats(); renderAutoBackupPanel(); renderLocalServerPanel(); }
+  if(p==='backup'){ renderDataStats(); renderLocalServerPanel(); }
   if(p==='daily-sup-summary'){ populateDssSupSel(); renderDailySup(); }
 }
 
@@ -2069,13 +2051,6 @@ function fmtDate(ds){
   const [y,m,d]=ds.split('-');
   const wd=days[new Date(ds+'T00:00:00').getDay()];
   return `${y}年${parseInt(m)}月${parseInt(d)}日（星期${wd}）`;
-}
-function fmtShortDate(ds){
-  if(!ds) return '';
-  const days=['日','一','二','三','四','五','六'];
-  const [y,m,d]=ds.split('-');
-  const wd=days[new Date(ds+'T00:00:00').getDay()];
-  return `${String(y).slice(-2)}年${parseInt(m)}月${parseInt(d)}日（${wd}）`;
 }
 function curDate(){ return document.getElementById('mainDate').value||todayStr(); }
 function onDateChange(){ modifiedSet=new Set(); entryMode='edit'; renderEntry(); }
@@ -2198,6 +2173,7 @@ function entryUndo(){
   entryRedoStack.push({d:item.d, snapshot:snapshotEntryDay(item.d)});
   DB.daily[item.d]=JSON.parse(item.snapshot);
   if(entryMode==='saved') setEntryMode('edit');
+  entryDirty=true; touchEntryActivity();
   const d=curDate();
   if(item.d===d) refreshEntryDisplay(d);
   autoSaveEntryNow();
@@ -2211,6 +2187,7 @@ function entryRedo(){
   entryUndoStack.push({d:item.d, snapshot:snapshotEntryDay(item.d)});
   DB.daily[item.d]=JSON.parse(item.snapshot);
   if(entryMode==='saved') setEntryMode('edit');
+  entryDirty=true; touchEntryActivity();
   const d=curDate();
   if(item.d===d) refreshEntryDisplay(d);
   autoSaveEntryNow();
@@ -2264,7 +2241,9 @@ function updateEntryStateBar(){
 }
 
 function setEntryMode(mode){
+  const _prevMode=entryMode;
   entryMode=mode;
+  if(mode==='edit' && _prevMode==='saved'){ entryEditedFromSaved=true; touchEntryActivity(); }  // 任何途径从「已保存」回到编辑（撤销/重做/清空等）都启用 5 分钟自动保存
   const btnSave=document.getElementById('btnSave');
   const btnEdit=document.getElementById('btnEdit');
   if(!btnSave||!btnEdit) return;
@@ -2279,6 +2258,7 @@ function setEntryMode(mode){
     });
     document.querySelectorAll('#entryBody tr.tr-modified').forEach(tr=>tr.classList.remove('tr-modified'));
     modifiedSet.clear();
+    entryDirty=false; entryEditedFromSaved=false;
   } else {
     btnSave.style.display='';
     btnEdit.style.display='none';
@@ -2293,6 +2273,8 @@ function setEntryMode(mode){
 
 function editEntry(){
   setEntryMode('edit');
+  entryEditedFromSaved=true;   // 从「已保存」点了编辑：即使没改数据，超时也自动回到已保存
+  touchEntryActivity();
 }
 
 function renderEntry(){
@@ -2307,6 +2289,7 @@ function renderEntry(){
   entryIsMouseDown=false;
   entryFocusSnapshot=null;
   if(entryUndoDate!==d){ entryUndoStack=[]; entryRedoStack=[]; entryUndoDate=d; }
+  entryRenderedDate=d; entryDirty=false; entryEditedFromSaved=false; touchEntryActivity();
 
   // Check if today has data; if not, prefill from yesterday
   const prevD=prevDateStr(d);
@@ -2397,6 +2380,39 @@ function updateEntryCellStyle(inp){
 function autoSaveEntryNow(){
   saveDB();
 }
+
+// ── 编辑态 5 分钟无操作 → 默认自动保存（防误点「编辑」/忘记点保存）────────────
+const ENTRY_AUTOSAVE_MS = 5*60*1000;   // 5 分钟
+let entryLastActivity = Date.now();
+let entryDirty = false;                // 本次编辑中是否改过数据
+let entryEditedFromSaved = false;      // 是否从「已保存」状态点了「编辑」
+let entryRenderedDate = null;          // 当前表格渲染的日期
+function touchEntryActivity(){ entryLastActivity = Date.now(); }
+(function initEntryAutoSave(){
+  const pg = ()=>document.getElementById('page-entry');
+  ['input','keydown','mousedown','click','pointerdown','pointermove','focusin','wheel','touchstart','change'].forEach(ev=>{
+    document.addEventListener(ev, e=>{
+      const p = pg();
+      if(!p || !p.contains(e.target)) return;
+      touchEntryActivity();
+      if(ev==='input' && e.target.classList && e.target.classList.contains('entry-num-inp')) entryDirty = true;
+    }, true);
+  });
+  setInterval(()=>{
+    try{
+      const p = pg();
+      if(!p || !p.classList.contains('active')) return;   // 只在录入页生效
+      if(entryMode!=='edit') return;
+      if(!(entryDirty || entryEditedFromSaved || modifiedSet.size>0)) return;    // 仅预填且没改动：不自动保存
+      if(entryRenderedDate && entryRenderedDate!==curDate()) return;
+      if(Date.now()-entryLastActivity < ENTRY_AUTOSAVE_MS) return;
+      const ae = document.activeElement;
+      if(ae && ae.classList && ae.classList.contains('entry-num-inp')) ae.blur();  // 先提交正在编辑的格子
+      saveEntry();
+      toast('⏱ 已 5 分钟未操作，已自动保存 Auto-saved after 5 min idle');
+    }catch(err){ console.warn('entry autosave failed', err); }
+  }, 10000);
+})();
 
 // ── 整行 / 整列 / 任意区域 选中与批量清空（类似 Excel 拖选） ──────────────────
 // entrySelection: {r1,c1,r2,c2} 行列区间（均含端点，索引从0开始，c 对应餐别列序号，不含 #/部门列）
@@ -2549,6 +2565,7 @@ function clearSelectedEntryCells(){
   updateEntryMetrics();
   updateEntryFoot(d);
   updateEntryStateBar();
+  entryDirty=true; touchEntryActivity();
   autoSaveEntryNow();
   toast('🗑 已清空所选区域');
   cancelEntrySelection();
@@ -3862,18 +3879,58 @@ function delDept(i){
 // ════════════════════════════════════════════════════════════
 // BACKUP / RESTORE
 // ════════════════════════════════════════════════════════════
-function exportBackup(){
+const SORL_ENCRYPTED_BACKUP_TYPE='sorl-encrypted-backup-v1';
+const SORL_BACKUP_KDF_ITERATIONS=600000;
+let _sorlBackupPassphrase=null; // memory only; never persist the decryption secret
+function _toB64(bytes){let s=''; for(const b of bytes)s+=String.fromCharCode(b); return btoa(s);}
+function _fromB64(s){if(typeof s!=='string'||s.length>80*1024*1024||!/^[A-Za-z0-9+/]*={0,2}$/.test(s))throw new Error('加密备份格式错误'); const raw=atob(s); return Uint8Array.from(raw,c=>c.charCodeAt(0));}
+function _backupCrypto(){if(!window.crypto?.subtle||!window.crypto.getRandomValues)throw new Error('当前浏览器不支持安全加密，请使用新版 Chrome、Edge 或 Brave'); return window.crypto;}
+async function _deriveBackupKey(passphrase,salt,iterations){
+  const c=_backupCrypto(), material=await c.subtle.importKey('raw',new TextEncoder().encode(passphrase),'PBKDF2',false,['deriveKey']);
+  return c.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt,iterations},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+let _sorlBackupCryptoCache=null;
+async function _cachedBackupKey(passphrase,salt,iterations){
+  const saltText=_toB64(salt),cached=_sorlBackupCryptoCache;
+  if(cached&&cached.passphrase===passphrase&&cached.salt===saltText&&cached.iterations===iterations)return cached.promise;
+  const promise=_deriveBackupKey(passphrase,salt,iterations);_sorlBackupCryptoCache={passphrase,salt:saltText,iterations,promise};
+  try{return await promise;}catch(e){if(_sorlBackupCryptoCache?.promise===promise)_sorlBackupCryptoCache=null;throw e;}
+}
+async function _encryptBackup(data,passphrase){
+  const c=_backupCrypto();let saltText=data?.settings?.auth?.backupKdfSalt;
+  // Older plaintext backups may not have this field. Initialize it once and
+  // persist it so every later save can reuse the derived key safely.
+  if(!saltText){
+    if(!data?.settings?.auth)throw new Error('管理员加密设置缺失，无法生成备份');
+    saltText=_toB64(c.getRandomValues(new Uint8Array(16)));
+    data.settings.auth.backupKdfSalt=saltText;
+    const json=JSON.stringify(data);
+    await idbSet(IDB_KEY,json);
+    try{localStorage.setItem('sorl_v2',json);}catch(e){}
+  }
+  const salt=_fromB64(saltText);if(salt.length!==16)throw new Error('备份加密密钥格式错误');
+  const iv=c.getRandomValues(new Uint8Array(12)),key=await _cachedBackupKey(passphrase,salt,SORL_BACKUP_KDF_ITERATIONS);
+  const plain=new TextEncoder().encode(JSON.stringify(data));
+  const cipher=await c.subtle.encrypt({name:'AES-GCM',iv,additionalData:new TextEncoder().encode(SORL_ENCRYPTED_BACKUP_TYPE)},key,plain);
+  return {format:SORL_ENCRYPTED_BACKUP_TYPE,kdf:'PBKDF2-SHA-256',iterations:SORL_BACKUP_KDF_ITERATIONS,cipher:'AES-256-GCM',salt:saltText,iv:_toB64(iv),ciphertext:_toB64(new Uint8Array(cipher))};
+}
+async function _decryptBackup(envelope,passphrase){
+  if(!envelope||envelope.format!==SORL_ENCRYPTED_BACKUP_TYPE||envelope.kdf!=='PBKDF2-SHA-256'||envelope.cipher!=='AES-256-GCM'||!Number.isInteger(envelope.iterations)||envelope.iterations<100000||envelope.iterations>1000000)throw new Error('不支持或损坏的加密备份格式');
+  const salt=_fromB64(envelope.salt),iv=_fromB64(envelope.iv),cipher=_fromB64(envelope.ciphertext);
+  if(salt.length!==16||iv.length!==12||cipher.length<17)throw new Error('加密备份数据不完整');
+  try{const key=await _deriveBackupKey(passphrase,salt,envelope.iterations);const plain=await _backupCrypto().subtle.decrypt({name:'AES-GCM',iv,additionalData:new TextEncoder().encode(SORL_ENCRYPTED_BACKUP_TYPE)},key,cipher);return JSON.parse(new TextDecoder().decode(plain));}
+  catch(e){if(e instanceof SyntaxError)throw e;throw new Error('口令错误或备份文件已损坏');}
+}
+async function _backupEnvelope(){
+  if(!_sorlBackupPassphrase)throw new Error('请先登录管理员账号');
+  return _encryptBackup(DB,_sorlBackupPassphrase);
+}
+function _downloadBackupObject(obj,filename){const blob=new Blob([JSON.stringify(obj)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(url);document.body.removeChild(a);},500);}
+async function exportBackup(){
   try{
-    const data=JSON.stringify(DB,null,2);
+    const envelope=await _backupEnvelope();
     const ts=new Date().toISOString().slice(0,10);
-    const blob=new Blob([data],{type:'application/octet-stream'});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');
-    a.href=url;
-    a.download=`SORL_meal_backup_${ts}.json`;
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(()=>{ URL.revokeObjectURL(url); document.body.removeChild(a); },200);
+    _downloadBackupObject(envelope,`SORL_meal_backup_${ts}.json`);
     // Record backup timestamp
     localStorage.setItem('sorl_last_backup',Date.now().toString());
     dismissBackupReminder();
@@ -3883,99 +3940,58 @@ function exportBackup(){
     console.error('exportBackup error:', err);
   }
 }
-function importBackup(inp){
+async function importBackup(inp){
   const file=inp.files[0]; if(!file) return;
   if(!confirm('恢复备份将覆盖所有现有数据！确认继续？\nRestore will overwrite ALL existing data! Continue?')) return;
   const reader=new FileReader();
-  reader.onload=e=>{
+  reader.onload=async e=>{
+    const previousDB=DB;
     try{
-      const data=JSON.parse(e.target.result);
-      if(!data.settings||!data.daily) throw new Error('无效备份文件');
-      DB=data;
-      saveDB();
-      toast('✓ 数据恢复成功！Data restored successfully!');
-      renderDataStats();
-    }catch(err){toast('❌ 恢复失败：'+err.message);}
+      let data=JSON.parse(e.target.result);
+      if(data?.format===SORL_ENCRYPTED_BACKUP_TYPE){
+        let pass=_sorlBackupPassphrase;
+        try{if(!pass)throw new Error('当前尚未登录');data=await _decryptBackup(data,pass);}
+        catch(primaryErr){const legacyPass=prompt('此备份可能使用旧版独立口令加密。请输入旧备份口令；新备份直接使用管理员密码。');if(legacyPass===null)throw primaryErr;data=await _decryptBackup(data,legacyPass);}
+      } else if(!confirm('此文件是未加密的旧版备份。导入时文件内容可能被本机其他程序读取。确定继续导入？')) throw new Error('已取消导入');
+      if(!data || typeof data!=='object' || Array.isArray(data) ||
+         !data.settings || typeof data.settings!=='object' || Array.isArray(data.settings) ||
+         !data.daily || typeof data.daily!=='object' || Array.isArray(data.daily))
+        throw new Error('无效备份文件');
+      _applyRawDB(data);
+      const json=JSON.stringify(DB);
+      await idbSet(IDB_KEY, json);
+      try{ localStorage.setItem('sorl_v2', json); }catch(err){}
+      syncLatestToServer();
+    }catch(err){
+      DB=previousDB;
+      toast('❌ 恢复失败：'+err.message);
+      return;
+    }
+    toast('✓ 数据恢复成功！Data restored successfully!');
+    try{ renderDataStats(); }catch(err){ console.warn('Could not refresh backup statistics:', err); }
+    setTimeout(()=>location.reload(), 500);
   };
+  reader.onerror=()=>toast('❌ 读取备份文件失败 / Could not read backup file');
   reader.readAsText(file);
   inp.value='';
 }
 
-// ── AUTO BACKUP ENGINE ───────────────────────────────────────
-// Uses the File System Access API (Chrome/Edge) to write timestamped
-// JSON backups into a user-chosen folder at 11:25 and 17:25 daily,
-// keeping only the most recent 31 days of backup files.
-const AUTO_BACKUP_SLOTS = [ {id:'am', h:11, m:25, label:'11:25'}, {id:'pm', h:17, m:25, label:'17:25'} ];
 const AUTO_BACKUP_RETENTION_DAYS = 31;
-const AUTO_BACKUP_HANDLE_KEY = 'autoBackupDirHandle';
-
 function pad2(n){ return n<10 ? '0'+n : ''+n; }
 function localDateStr(d){ return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
-function autoBackupSupported(){ return 'showDirectoryPicker' in window; }
 
-// ── FALLBACK AUTO BACKUP (for browsers without File System Access API, e.g. Brave) ──
-// Instead of writing into a chosen folder, this triggers a normal file download
-// (same mechanism as the manual "Export Backup" button) at the scheduled slots.
-// No folder picker / permission prompt is needed, but old files can't be
-// auto-deleted, so the Downloads folder will accumulate files over time.
-const AUTO_BACKUP_FALLBACK_KEY = 'sorl_autobackup_fallback_enabled';
-function fallbackAutoBackupEnabled(){ return localStorage.getItem(AUTO_BACKUP_FALLBACK_KEY)==='1'; }
-function toggleFallbackAutoBackup(checked){
-  localStorage.setItem(AUTO_BACKUP_FALLBACK_KEY, checked?'1':'0');
-  renderAutoBackupPanel();
-  if(checked) checkAutoBackupSchedule();
-}
-function doFallbackAutoBackup(slotId){
-  try{
-    const now = new Date();
-    const ds = localDateStr(now);
-    const hm = pad2(now.getHours())+pad2(now.getMinutes())+pad2(now.getSeconds());
-    const suffix = slotId==='manual' ? 'manual' : slotId;
-    const fname = `SORL_meal_backup_${ds}_${hm}_${suffix}.json`;
-    const data = JSON.stringify(DB,null,2);
-    const blob = new Blob([data],{type:'application/octet-stream'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fname;
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(()=>{ URL.revokeObjectURL(url); document.body.removeChild(a); },200);
-    localStorage.setItem('sorl_last_autobackup', Date.now().toString());
-    localStorage.setItem('sorl_last_autobackup_method','fallback');
-    toast(`✓ 备份已自动下载 Backup auto-downloaded: ${fname}`);
-    return true;
-  }catch(err){
-    console.error('doFallbackAutoBackup error', err);
-    toast('❌ 自动下载备份失败 Fallback backup failed: '+err.message);
-    return false;
-  }
-}
-
-async function getAutoBackupHandle(){
-  try{ const h = await idbGet(AUTO_BACKUP_HANDLE_KEY); return h || null; }catch(e){ return null; }
-}
-
-// ── LOCAL SERVER AUTO BACKUP (recommended — no browser permission prompts at all) ──
-// The File System Access API's write permission is, by browser design, tied to a
-// user gesture and is NOT guaranteed to survive a tab/browser restart (this is a
-// security restriction, not a bug in this app — see reauthAutoBackup() above).
-// This mode instead POSTs the data over plain HTTP to a tiny local companion
-// script (sorl_backup_server.py, or the Node.js variant sorl-backup-server.js) that you run once on this PC; it writes the
-// timestamped JSON files itself using normal Node.js filesystem access, so the
-// browser is never asked for filesystem permission and there is nothing to
-// re-authorize, ever — this fully solves "每天都得重新授权".
+// ── LOCAL SERVER AUTO BACKUP ──
+// The companion Python service stores encrypted data and creates scheduled snapshots.
 const LOCAL_SERVER_URL_KEY = 'sorl_localserver_url';
 const LOCAL_SERVER_TOKEN_KEY = 'sorl_localserver_token';
 const LOCAL_SERVER_ENABLED_KEY = 'sorl_localserver_enabled';
 function localServerUrl(){ return (localStorage.getItem(LOCAL_SERVER_URL_KEY) || 'http://127.0.0.1:8787').replace(/\/+$/,''); }
 function localServerToken(){ return localStorage.getItem(LOCAL_SERVER_TOKEN_KEY) || ''; }
 function localServerEnabled(){ return localStorage.getItem(LOCAL_SERVER_ENABLED_KEY)==='1'; }
-
 function toggleLocalServerEnabled(checked){
   localStorage.setItem(LOCAL_SERVER_ENABLED_KEY, checked?'1':'0');
   renderLocalServerPanel();
-  if(checked){ checkAutoBackupSchedule(); syncLatestToServer(); }
+  if(checked){ syncLatestToServer(); }
 }
 function saveLocalServerSettings(){
   const url = (document.getElementById('localServerUrlInput')?.value||'').trim().replace(/\/+$/,'');
@@ -4000,7 +4016,7 @@ async function pingLocalServer(){
 }
 function testLocalServer(){
   pingLocalServer().then(ok=>{
-    toast(ok ? '✓ 连接成功 Connected' : '❌ 无法连接，请确认本地备份脚本（sorl_backup_server.py 等）是否已在本机运行 / Cannot connect — make sure the local backup script (sorl_backup_server.py) is running on this PC');
+    toast(ok ? '✓ 连接成功 Connected' : '❌ 服务未连接或版本过旧。启动更新后的 sorl_backup_server.py；若 8787 端口被占用，先关闭旧备份服务。/ Service offline or outdated; start the updated script and close the old service if port 8787 is occupied.');
     renderLocalServerPanel();
   });
 }
@@ -4014,25 +4030,31 @@ function testLocalServer(){
 // clock, WITHOUT needing this page to be open at that exact moment.
 // Debounced so rapid successive saves don't spam the local server.
 let _syncDebounceTimer = null;
+let _syncLoginNoticeShown=false;
+let _syncFailureNoticeShown=false;
 function syncLatestToServer(){
   if(!localServerEnabled()) return;
+  if(!_sorlBackupPassphrase){if(!_syncLoginNoticeShown){_syncLoginNoticeShown=true;toast('本机保存已完成；服务器同步暂停。请先登录管理员账号 / Saved locally; log in as administrator to sync');}return;}
   clearTimeout(_syncDebounceTimer);
   _syncDebounceTimer = setTimeout(async ()=>{
     try{
       const url = localServerUrl();
-      const token = localServerToken();
+          const encrypted=await _encryptBackup(DB,_sorlBackupPassphrase);
       const headers = {'Content-Type':'application/json'};
+      const token = localServerToken();
       if(token) headers['X-Backup-Token'] = token;
       const res = await fetch(url+'/sync', {
         method:'POST', headers,
-        body: JSON.stringify({data:DB})
+        body: JSON.stringify({data:encrypted})
       });
-      if(res.ok) localStorage.setItem('sorl_last_sync', Date.now().toString());
+      if(!res.ok){let detail='';try{detail=await res.text();}catch(e){}throw new Error('HTTP '+res.status+(detail?': '+detail:''));}
+      localStorage.setItem('sorl_last_sync', Date.now().toString());_syncFailureNoticeShown=false;
     }catch(err){
       // Best-effort / silent: if the local server happens to be off right
       // now, the server-side scheduler will just use whatever was synced
       // last time it's reachable. No need to bother the user about this.
       console.warn('syncLatestToServer failed', err);
+      if(!_syncFailureNoticeShown){_syncFailureNoticeShown=true;toast('本机已保存，但服务器同步失败：'+err.message);}
     }
   }, 2000);
 }
@@ -4040,17 +4062,18 @@ function syncLatestToServer(){
 async function doLocalServerBackup(slotId){
   try{
     const url = localServerUrl();
-    const token = localServerToken();
-    const now = new Date();
+      const now = new Date();
     const ds = localDateStr(now);
     const hm = pad2(now.getHours())+pad2(now.getMinutes())+pad2(now.getSeconds());
     const suffix = slotId==='manual' ? 'manual' : slotId;
     const fname = `SORL_meal_backup_${ds}_${hm}_${suffix}.json`;
+    const encrypted=await _backupEnvelope();
     const headers = {'Content-Type':'application/json'};
-    if(token) headers['X-Backup-Token'] = token;
+    const token = localServerToken();
+      if(token) headers['X-Backup-Token'] = token;
     const res = await fetch(url+'/backup', {
       method:'POST', headers,
-      body: JSON.stringify({filename:fname, retentionDays:AUTO_BACKUP_RETENTION_DAYS, data:DB})
+      body: JSON.stringify({filename:fname, retentionDays:AUTO_BACKUP_RETENTION_DAYS, data:encrypted})
     });
     if(!res.ok){
       let t=''; try{ t = await res.text(); }catch(e){}
@@ -4071,21 +4094,37 @@ async function renderLocalServerPanel(){
   if(!el) return;
   const enabled = localServerEnabled();
   const url = localServerUrl();
-  const token = localServerToken();
-  const lastAuto = localStorage.getItem('sorl_last_autobackup');
-  const lastMethod = localStorage.getItem('sorl_last_autobackup_method');
-  const lastAutoLabel = lastAuto ? new Date(parseInt(lastAuto)).toLocaleString('zh-CN') : '从未 Never';
+  let lastAutoLabel = enabled ? '无法读取：本机服务未连接 Service unavailable' : '本机自动备份已关闭 Disabled';
+  let serverBackupLabel = '';
   let statusHtml = '';
   if(enabled){
     const reachable = await pingLocalServer();
+    if(reachable){
+      try{
+        const statusRes = await fetch(url+'/status', {cache:'no-store'});
+        const statusData = statusRes.ok ? await statusRes.json() : null;
+        if(statusData?.latestBackup?.modified){
+          serverBackupLabel = new Date(statusData.latestBackup.modified).toLocaleString('zh-CN');
+          lastAutoLabel = serverBackupLabel;
+          const _t = new Date(statusData.latestBackup.modified).getTime();
+          if(Number.isFinite(_t)){ window._serverLastBackupTs = _t; try{ renderDataStats(); }catch(e){} }
+        }else if(statusData?.latestBackup===null){
+          serverBackupLabel = '服务端尚无备份文件 No server backup files yet';
+          lastAutoLabel = serverBackupLabel;
+        }else{
+          serverBackupLabel = '请更新并重启备份脚本 Update and restart backup script';
+          lastAutoLabel = serverBackupLabel;
+        }
+      }catch(err){ console.warn('Could not read latest server backup status', err); }
+    }
     statusHtml = reachable
-      ? `<p style="font-size:12.5px;color:var(--gh)">✓ 已连接本地备份服务 Connected — ${escHtml(url)}</p>`
-      : `<p style="font-size:12.5px;color:var(--red)">⚠️ 无法连接本地备份服务，请确认电脑上是否已启动本地备份脚本（sorl_backup_server.py）/ Can't reach the local backup service — make sure the local backup script (sorl_backup_server.py) is running on this PC (${escHtml(url)})</p>`;
+      ? `<p style="font-size:12.5px;color:var(--gh)">✓ 已连接本地备份服务 Connected — ${escHtml(url)}<br>📌 备份文件夹中最新备份 Latest backup file: <b>${escHtml(serverBackupLabel||lastAutoLabel)}</b></p>`
+      : `<p style="font-size:12.5px;color:var(--red)">⚠️ 本机备份服务未连接或版本过旧。请启动更新后的 <code>sorl_backup_server.py</code>；若 8787 端口已被占用，先关闭旧备份服务。然后通过 <a href="${escHtml(url)}/app">${escHtml(url)}/app</a> 打开系统。<br>Local backup service is offline or outdated. Start the updated <code>sorl_backup_server.py</code>; if port 8787 is occupied, close the old backup service first. Then open the app at ${escHtml(url)}/app.</p>`;
   }
   el.innerHTML = `
     <p style="font-size:12.5px;color:var(--text2);line-height:1.7;margin-bottom:10px">
-      🌟 在电脑上运行一个小型本地服务（随本系统附带的 <code>sorl_backup_server.py</code>），网页通过普通网络请求自动把数据发给它写入文件 —— 不经过浏览器的文件夹选择器/权限系统，因此<b>永远不会跳出"需要重新授权"</b>。<br>
-      Run a small local service on this PC (the included <code>sorl_backup_server.py</code>). The page sends data to it over a normal network request and it writes the file directly — this bypasses the browser's folder-picker permission system entirely, so it will <b>never</b> ask you to re-authorize.<br>
+      🌟 本地服务只保存加密后的数据。你正常登录网页后，系统自动完成加密同步和定时备份，无需额外解锁。<br>
+      The local service stores encrypted data only. Once you sign in normally, encrypted sync and scheduled backups run automatically; no separate unlock step is required.<br>
       💡 每次保存数据都会实时同步一份最新数据给它，本地服务自己按 11:25 / 17:25 打包成正式备份 —— 所以<b>就算到点时这个网页没开着，只要电脑开机、本地服务在后台运行，备份依然会自动完成</b>。<br>
       Every save also syncs the latest data to it in real time; the local service snapshots it into a timestamped backup on its own at 11:25 / 17:25 — so <b>backups still happen automatically even if this page isn't open at that exact moment</b>, as long as the PC is on and the local service is running in the background.
     </p>
@@ -4098,7 +4137,6 @@ async function renderLocalServerPanel(){
     ${statusHtml}
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
       <input id="localServerUrlInput" value="${escHtml(url)}" placeholder="http://127.0.0.1:8787" style="flex:1;min-width:200px;padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12.5px">
-      <input id="localServerTokenInput" value="${escHtml(token)}" placeholder="密钥 Token（可选 optional）" style="width:170px;padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12.5px">
       <button class="btn" onclick="saveLocalServerSettings()">💾 保存 Save</button>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -4106,242 +4144,18 @@ async function renderLocalServerPanel(){
       <button class="btn btn-primary" onclick="doLocalServerBackup('manual').then(()=>renderLocalServerPanel())" ${!enabled?'disabled':''}>📤 立即备份一次 / Backup Now</button>
     </div>
     <p style="font-size:11.5px;color:var(--text3);margin-top:10px;line-height:1.7">
-      📌 上次自动备份 Last auto backup: <b>${lastAutoLabel}</b>${lastMethod?` (${lastMethod==='server'?'本地服务器 local server':lastMethod==='fallback'?'下载兜底 download fallback':'文件夹 folder'})`:''}<br>
+      📌 最新备份时间 Latest backup time: <b>${lastAutoLabel}</b><br>
+      🌐 建议通过本地服务入口打开系统 / Recommended app address: <a href="${escHtml(url)}/app">${escHtml(url)}/app</a><br>
       ⚙️ 配置与开机自启方法见随附的 <code>sorl_backup_server.py</code> 顶部注释说明。<br>
       Setup and auto-start-on-login instructions are in the comment block at the top of the accompanying <code>sorl_backup_server.py</code>.
     </p>
   `;
 }
 
-async function pickAutoBackupFolder(){
-  if(!autoBackupSupported()){
-    toast('❌ 当前浏览器不支持，请使用 Chrome 或 Edge / Not supported, use Chrome or Edge');
-    return;
-  }
-  try{
-    const handle = await window.showDirectoryPicker({mode:'readwrite'});
-    const perm = await handle.requestPermission({mode:'readwrite'});
-    if(perm!=='granted'){ toast('❌ 未获得写入权限 / Write permission not granted'); return; }
-    await idbSet(AUTO_BACKUP_HANDLE_KEY, handle);
-    localStorage.setItem('sorl_autobackup_enabled','1');
-    toast('✓ 备份文件夹已设置 Backup folder set: '+handle.name);
-    await renderAutoBackupPanel();
-    checkAutoBackupSchedule();
-  }catch(err){
-    if(err && err.name!=='AbortError') toast('❌ 设置失败 Failed: '+err.message);
-  }
-}
-
-async function reauthAutoBackup(){
-  const handle = await getAutoBackupHandle();
-  if(!handle){ toast('❌ 尚未设置备份文件夹 / No folder set yet'); return; }
-  try{
-    const perm = await handle.requestPermission({mode:'readwrite'});
-    if(perm==='granted'){
-      toast('✓ 已重新授权 Access re-authorized');
-      checkAutoBackupSchedule();
-    } else {
-      toast('❌ 授权被拒绝 Permission denied');
-    }
-  }catch(err){
-    toast('❌ 授权失败 Failed: '+err.message);
-  }
-  await renderAutoBackupPanel();
-}
-
-function toggleAutoBackupEnabled(checked){
-  localStorage.setItem('sorl_autobackup_enabled', checked?'1':'0');
-  renderAutoBackupPanel();
-  if(checked) checkAutoBackupSchedule();
-}
-
-async function cleanupOldBackups(handle){
-  try{
-    const cutoff = Date.now() - AUTO_BACKUP_RETENTION_DAYS*86400000;
-    const toDelete = [];
-    for await (const [name, entry] of handle.entries()){
-      if(entry.kind!=='file') continue;
-      const m = name.match(/^SORL_meal_backup_(\d{4})-(\d{2})-(\d{2})/);
-      if(!m) continue;
-      const fileTime = new Date(+m[1], +m[2]-1, +m[3]).getTime();
-      if(fileTime < cutoff) toDelete.push(name);
-    }
-    for(const name of toDelete){
-      try{ await handle.removeEntry(name); }catch(e){ console.error('removeEntry failed', name, e); }
-    }
-    return toDelete.length;
-  }catch(err){
-    console.error('cleanupOldBackups error', err);
-    return 0;
-  }
-}
-
-async function doAutoBackup(slotId){
-  try{
-    const handle = await getAutoBackupHandle();
-    if(!handle) throw new Error('未设置备份文件夹 / No backup folder set');
-    let perm = await handle.queryPermission({mode:'readwrite'});
-    if(perm!=='granted'){
-      // requestPermission only succeeds without a user gesture if already granted;
-      // this will simply fail quietly for a truly stale permission (handled by the reauth banner).
-      perm = await handle.requestPermission({mode:'readwrite'});
-    }
-    if(perm!=='granted') throw new Error('无写入权限，请重新授权 / No write permission, please re-authorize');
-    const now = new Date();
-    const ds = localDateStr(now);
-    const hm = pad2(now.getHours())+pad2(now.getMinutes())+pad2(now.getSeconds());
-    const suffix = slotId==='manual' ? 'manual' : slotId;
-    const fname = `SORL_meal_backup_${ds}_${hm}_${suffix}.json`;
-    const fileHandle = await handle.getFileHandle(fname, {create:true});
-    const writable = await fileHandle.createWritable();
-    await writable.write(JSON.stringify(DB,null,2));
-    await writable.close();
-    localStorage.setItem('sorl_last_autobackup', Date.now().toString());
-    localStorage.setItem('sorl_last_autobackup_method','folder');
-    await cleanupOldBackups(handle);
-    toast(`✓ 自动备份完成 Auto backup saved: ${fname}`);
-    return true;
-  }catch(err){
-    console.error('doAutoBackup error', err);
-    toast('❌ 自动备份失败 Auto backup failed: '+err.message);
-    return false;
-  }
-}
-
-// Checks whether today's 11:25 / 17:25 slots are due, and catches up
-// any missed slot the next time the app is opened that same day.
-let _autoBackupChecking = false;
-async function checkAutoBackupSchedule(){
-  if(_autoBackupChecking) return;
-  _autoBackupChecking = true;
-  try{
-    const now = new Date();
-    const todayStr = localDateStr(now);
-    const nowMinutes = now.getHours()*60+now.getMinutes();
-
-    // Local server method takes priority: no permission prompts, works in any browser.
-    // Flag keys are shared with the other methods below, so if the local server already
-    // handled a slot, the folder/download methods won't duplicate it.
-    if(localServerEnabled()){
-      const reachable = await pingLocalServer();
-      if(reachable){
-        for(const slot of AUTO_BACKUP_SLOTS){
-          const slotMinutes = slot.h*60+slot.m;
-          const flagKey = `sorl_autobackup_${slot.id}_${todayStr}`;
-          if(nowMinutes>=slotMinutes && !localStorage.getItem(flagKey)){
-            const ok = await doLocalServerBackup(slot.id);
-            if(ok) localStorage.setItem(flagKey, Date.now().toString());
-          }
-        }
-      }
-      // If unreachable, fall through silently — the folder/download methods below
-      // (if also configured) act as a safety net for that day.
-    }
-
-    if(autoBackupSupported() && localStorage.getItem('sorl_autobackup_enabled')==='1'){
-      // Chrome/Edge path: write into the chosen folder
-      const handle = await getAutoBackupHandle();
-      if(handle){
-        const perm = await handle.queryPermission({mode:'readwrite'});
-        if(perm==='granted'){
-          for(const slot of AUTO_BACKUP_SLOTS){
-            const slotMinutes = slot.h*60+slot.m;
-            const flagKey = `sorl_autobackup_${slot.id}_${todayStr}`;
-            if(nowMinutes>=slotMinutes && !localStorage.getItem(flagKey)){
-              const ok = await doAutoBackup(slot.id);
-              if(ok) localStorage.setItem(flagKey, Date.now().toString());
-            }
-          }
-        } // else: reauth banner in renderAutoBackupPanel handles this
-      }
-    } else if(!autoBackupSupported() && fallbackAutoBackupEnabled()){
-      // Brave / other browsers without File System Access API: trigger a download instead
-      for(const slot of AUTO_BACKUP_SLOTS){
-        const slotMinutes = slot.h*60+slot.m;
-        const flagKey = `sorl_autobackup_${slot.id}_${todayStr}`;
-        if(nowMinutes>=slotMinutes && !localStorage.getItem(flagKey)){
-          const ok = doFallbackAutoBackup(slot.id);
-          if(ok) localStorage.setItem(flagKey, Date.now().toString());
-        }
-      }
-    }
-  } finally {
-    _autoBackupChecking = false;
-    renderAutoBackupPanel();
-    renderLocalServerPanel();
-  }
-}
-
-async function renderAutoBackupPanel(){
-  const el = document.getElementById('autoBackupPanel');
-  if(!el) return;
-  if(!autoBackupSupported()){
-    const fbEnabled = fallbackAutoBackupEnabled();
-    const lastAuto = localStorage.getItem('sorl_last_autobackup');
-    const lastAutoLabel = lastAuto ? new Date(parseInt(lastAuto)).toLocaleString('zh-CN') : '从未 Never';
-    el.innerHTML = `
-      <p style="font-size:12.5px;color:var(--red);line-height:1.6">⚠️ 当前浏览器（如 Brave）不支持写入指定文件夹的自动备份（需要 Chrome 或 Edge 浏览器的 File System Access API）。<br>
-      This browser (e.g. Brave) doesn't support folder-writing auto backup (needs Chrome/Edge's File System Access API).</p>
-      <div style="display:flex;align-items:center;gap:10px;margin:12px 0">
-        <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
-          <input type="checkbox" id="fallbackBackupCk" ${fbEnabled?'checked':''} onchange="toggleFallbackAutoBackup(this.checked)">
-          启用「下载兜底备份」/ Enable Download Fallback Backup
-        </label>
-      </div>
-      <p style="font-size:12px;color:var(--text2);line-height:1.7">
-        开启后，系统会在每天 <b>11:25</b> 和 <b>17:25</b>（页面需保持打开，缺失的会在当天下次打开页面时补做）自动把备份文件下载到浏览器默认下载文件夹，无需选择文件夹、无需授权弹窗。文件名类似 <code>SORL_meal_backup_2026-08-19_112500_am.json</code>。<br>
-        Once enabled, backups auto-download to your browser's default Downloads folder at 11:25 and 17:25 daily (tab must be open; a missed slot is caught up next time the page opens that day) — no folder picker or permission prompt needed.<br>
-        ⚠️ 与 Chrome/Edge 方案不同：这里<b>无法自动清理旧文件</b>，Downloads 文件夹会逐渐堆积，请定期手动清理。<br>
-        ⚠️ Unlike the Chrome/Edge version, old files here <b>cannot be auto-deleted</b> — please clean up your Downloads folder periodically.<br>
-        📌 上次自动备份 Last auto backup: <b>${lastAutoLabel}</b>
-      </p>
-      <button class="btn" onclick="doFallbackAutoBackup('manual')">🧪 立即测试下载备份 / Test Download Backup Now</button>
-      <p style="font-size:11.5px;color:var(--text3);margin-top:10px">也可继续使用上方「导出备份」手动备份。/ You can also keep using manual "Export Backup" above.</p>
-    `;
-    return;
-  }
-  const enabled = localStorage.getItem('sorl_autobackup_enabled')==='1';
-  const handle = await getAutoBackupHandle();
-  let permStatus = 'none';
-  if(handle){
-    try{ permStatus = await handle.queryPermission({mode:'readwrite'}); }catch(e){ permStatus='error'; }
-  }
-  const lastAuto = localStorage.getItem('sorl_last_autobackup');
-  const lastAutoLabel = lastAuto ? new Date(parseInt(lastAuto)).toLocaleString('zh-CN') : '从未 Never';
-  let statusHtml;
-  if(!handle){
-    statusHtml = `<p style="font-size:12.5px;color:var(--text2)">尚未设置备份文件夹 / No backup folder selected yet</p>`;
-  } else if(permStatus==='granted'){
-    statusHtml = `<p style="font-size:12.5px;color:var(--gh)">✓ 已授权 Authorized — 文件夹 Folder: <b>${escHtml(handle.name)}</b></p>`;
-  } else {
-    statusHtml = `<p style="font-size:12.5px;color:var(--red)">⚠️ 需要重新授权（浏览器安全限制，每次重新打开本页面可能需要重新点击）<br>Re-authorization needed (browser security — may be required each time the page reopens) — 文件夹 Folder: <b>${escHtml(handle.name)}</b><br>
-      <button class="btn btn-warning" onclick="reauthAutoBackup()" style="margin-top:6px">🔓 点击重新授权 / Click to Re-authorize</button></p>`;
-  }
-  el.innerHTML = `
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-      <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
-        <input type="checkbox" id="autoBackupEnabledCk" ${enabled?'checked':''} onchange="toggleAutoBackupEnabled(this.checked)">
-        启用自动备份 / Enable Auto Backup
-      </label>
-    </div>
-    ${statusHtml}
-    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-      <button class="btn btn-primary" onclick="pickAutoBackupFolder()">📁 ${handle?'更改':'选择'}备份文件夹 / ${handle?'Change':'Choose'} Folder</button>
-      <button class="btn" onclick="doAutoBackup('manual')" ${!handle?'disabled':''}>🧪 立即测试备份 / Test Backup Now</button>
-    </div>
-    <p style="font-size:11.5px;color:var(--text3);margin-top:10px;line-height:1.7">
-      ⏰ 自动备份时间：每天 <b>11:25</b> 和 <b>17:25</b>（需要本页面/浏览器保持打开；若当时未打开，下次打开页面时会自动补做当天缺失的备份）。<br>
-      Scheduled times: <b>11:25</b> and <b>17:25</b> daily (the browser tab must be open; a missed slot is caught up automatically next time the page is opened that day).<br>
-      🗑️ 仅保留最近 <b>${AUTO_BACKUP_RETENTION_DAYS} 天</b> 的备份文件，超过自动删除覆盖 / Only the most recent <b>${AUTO_BACKUP_RETENTION_DAYS} days</b> of backups are kept — older files are deleted automatically.<br>
-      📌 上次自动备份 Last auto backup: <b>${lastAutoLabel}</b>
-    </p>
-  `;
-}
-
-function confirmSystemReset(){
+async function confirmSystemReset(){
   const pass = document.getElementById('resetPasswordInput').value;
   if(!pass){ toast('请输入管理员密码 / Please enter admin password'); return; }
-  if(pass !== DB.settings.auth.password){ toast('❌ 密码错误 / Invalid Password'); return; }
+  if(!await _verifyAdminPassword(pass)){ toast('❌ 密码错误 / Invalid Password'); return; }
   
   if(!confirm('🚨 最终确认：此操作将永久删除所有数据，包括部门、餐别和所有历史记录，且不可撤销！\nFINAL WARNING: This will permanently delete ALL data (depts, settings, history) and cannot be undone!')) return;
   
@@ -4351,25 +4165,76 @@ function confirmSystemReset(){
   setTimeout(() => location.reload(), 1500);
 }
 
+// ── 年度结转：清除历史记录，保留部门/餐别/价格/密码等设置 ─────────────
+async function confirmYearEndRollover(){
+  const inp=document.getElementById('rolloverPasswordInput');
+  const pass=inp.value;
+  if(!pass){ toast('请输入管理员密码 / Please enter admin password'); return; }
+  if(!await _verifyAdminPassword(pass)){ toast('❌ 密码错误 / Invalid Password'); return; }
+  const days=Object.keys(DB.daily||{}).length;
+  const logDays=Object.keys(DB.daylog||{}).length;
+  if(!days && !logDays){ toast('当前没有历史记录，无需结转 / No history to roll over'); return; }
+  if(!confirm('📅 年度结转\n\n将清除：录入 '+days+' 天、汇总 '+logDays+' 天的全部历史记录。\n将保留：部门、餐别、供应商价格、管理员密码等所有设置。\n\n点击“确定”后，系统会先下载一份完整备份文件。\n\nThis will clear all history and keep all settings. A full backup will be downloaded first.')) return;
+  // 1. 先下载完整备份
+  const ts=new Date().toISOString().slice(0,10);
+  const fname='SORL_年度结转前备份_'+ts+'.json';
+  try{
+    const envelope=await _backupEnvelope();
+    _downloadBackupObject(envelope,fname);
+    localStorage.setItem('sorl_last_backup',Date.now().toString());
+  }catch(err){
+    toast('❌ 备份下载失败，已取消结转 / Backup failed, rollover cancelled: '+err.message);
+    return;
+  }
+  // 2. 让使用者确认备份已保存
+  if(!confirm('备份文件已下载：\n'+fname+'\n\n请确认它已保存好（建议再复制一份到U盘或网盘）。\n确认无误后点“确定”，系统将清除历史记录；点“取消”则不做任何改动。\n\nBackup downloaded. Click OK only after you have saved it safely.')){
+    toast('已取消结转，数据未改动 / Cancelled, no data changed');
+    return;
+  }
+  // 3. 先把清除后的数据写入存储，写成功后才替换内存数据
+  const newDB=Object.assign({}, DB, { daily:{}, daylog:{}, vipNotes:{}, dailyFormulas:{} });
+  const json=JSON.stringify(newDB);
+  try{
+    await idbSet(IDB_KEY, json);
+  }catch(err){
+    toast('❌ 写入失败，数据未改动 / Write failed, nothing changed: '+err.message);
+    return;
+  }
+  try{ localStorage.setItem('sorl_v2', json); }catch(e){}
+  DB=newDB;
+  deptMarks={}; saveDeptMarksToStorage();
+  entryUndoStack=[]; entryRedoStack=[]; modifiedSet=new Set();
+  syncLatestToServer();
+  inp.value='';
+  toast('✅ 年度结转完成，历史记录已清除，设置已保留 / Rollover done');
+  setTimeout(()=>location.reload(), 1500);
+}
+
 function renderDataStats(){
   const days=Object.keys(DB.daily||{}).length;
   const logDays=Object.keys(DB.daylog||{}).length;
   const depts=Depts().length;
   const mts=MTs().length;
-  const bytes=JSON.stringify(DB).length;
-  const kb=(bytes/1024).toFixed(1);
-  const mb=(bytes/1048576).toFixed(2);
-  const sizeLabel = bytes>=1048576 ? mb+' MB' : kb+' KB';
-  // Last backup display
-  const lastBackupTs = localStorage.getItem('sorl_last_backup');
+  // Real UTF-8 byte size (Chinese characters take 3 bytes, so string length under-counts)
+  const bytes=new TextEncoder().encode(JSON.stringify(DB)).length;
+  const fmtSize=n=>n>=1048576 ? (n/1048576).toFixed(2)+' MB' : (n/1024).toFixed(1)+' KB';
+  // Encrypted backup file = AES-GCM ciphertext (+16-byte tag) as base64, plus ~206 bytes of JSON envelope
+  const backupBytes=Math.ceil((bytes+16)/3)*4+206;
+  const sizeLabel = fmtSize(backupBytes);
+  const rawLabel = fmtSize(bytes);
+  // Last backup display: newest of manual export, local-server backup, and the server's backup folder
+  const _ts=k=>{ const n=parseInt(localStorage.getItem(k)||'',10); return Number.isFinite(n)?n:0; };
+  const lastBackupTs = Math.max(_ts('sorl_last_backup'), _ts('sorl_last_autobackup'), window._serverLastBackupTs||0);
   let lastBackupLabel, backupColor;
   if(!lastBackupTs){
     lastBackupLabel='从未备份<br><small style="font-size:9px">Never backed up</small>';
     backupColor='var(--red)';
   } else {
-    const daysSince=Math.floor((Date.now()-parseInt(lastBackupTs))/86400000);
+    const _d0=new Date(lastBackupTs), _n0=new Date();
+    const daysSince=Math.max(0,Math.round((new Date(_n0.getFullYear(),_n0.getMonth(),_n0.getDate())-new Date(_d0.getFullYear(),_d0.getMonth(),_d0.getDate()))/86400000));
     backupColor = daysSince>30 ? 'var(--red)' : daysSince>7 ? '#d97706' : 'var(--gh)';
-    lastBackupLabel = daysSince===0 ? '今天 Today' : daysSince+'天前<br><small style="font-size:9px">days ago</small>';
+    const when = new Date(lastBackupTs).toLocaleString('zh-CN');
+    lastBackupLabel = (daysSince===0 ? '今天 Today' : daysSince===1 ? '昨天 Yesterday' : daysSince+'天前 days ago') + `<br><small style="font-size:9px">${when}</small>`;
   }
   document.getElementById('dataStats').innerHTML=`
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
@@ -4377,7 +4242,7 @@ function renderDataStats(){
       <div class="metric"><div class="metric-l">已汇总天数<br><small style='font-size:9px;color:var(--text3)'>Days Logged</small></div><div class="metric-v" style="font-size:20px">${logDays}</div></div>
       <div class="metric"><div class="metric-l">部门数量<br><small style='font-size:9px;color:var(--text3)'>Departments</small></div><div class="metric-v" style="font-size:20px">${depts}</div></div>
       <div class="metric"><div class="metric-l">餐别数量<br><small style='font-size:9px;color:var(--text3)'>Meal Types</small></div><div class="metric-v" style="font-size:20px">${mts}</div></div>
-      <div class="metric"><div class="metric-l">数据大小<br><small style='font-size:9px;color:var(--text3)'>Data Size (IndexedDB)</small></div><div class="metric-v" style="font-size:16px">${sizeLabel}</div></div>
+      <div class="metric"><div class="metric-l">备份文件大小<br><small style='font-size:9px;color:var(--text3)'>Backup File Size (encrypted)</small></div><div class="metric-v" style="font-size:16px">${sizeLabel}<br><small style="font-size:9px;font-weight:400;color:var(--text3)">原始数据 Raw data: ${rawLabel}</small></div></div>
       <div class="metric">
         <div class="metric-l">上次备份<br><small style='font-size:9px;color:var(--text3)'>Last Backup</small></div>
         <div class="metric-v" style="font-size:15px;color:${backupColor};line-height:1.2">${lastBackupLabel}</div>
@@ -5081,39 +4946,17 @@ function dismissBackupReminder(){
 // INIT
 // ════════════════════════════════════════════════════════════
 loadDB().then(()=>{
+  // Seed the companion service once after loading the persisted database.
+  // Normal saves keep it current; the minute scheduler should not rewrite it.
+  if(localServerEnabled()) syncLatestToServer();
   checkAuth();
   updateClock();
   setInterval(updateClock,30000);
   populateMonthSels(true);
   setTimeout(checkBackupReminder,2000);
-  setTimeout(checkAutoBackupSchedule,3000);
-  setInterval(checkAutoBackupSchedule,60000);
 });
 </script>
 
 
-
-<script>
-/* 手机端:汉堡菜单 / 点击菜单项后自动收起 */
-(function(){
-  function init(){
-    var topbar=document.getElementById('topbar');
-    if(!topbar||document.getElementById('menuBtn'))return;
-    var btn=document.createElement('button');
-    btn.id='menuBtn';btn.type='button';btn.className='menu-btn no-print';
-    btn.setAttribute('aria-label','菜单 Menu');
-    btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
-    topbar.insertBefore(btn,topbar.firstChild);
-    var bd=document.createElement('div');bd.id='navBackdrop';bd.className='no-print';
-    document.body.appendChild(bd);
-    function setOpen(o){document.body.classList.toggle('nav-open',o);}
-    btn.addEventListener('click',function(){setOpen(!document.body.classList.contains('nav-open'));});
-    bd.addEventListener('click',function(){setOpen(false);});
-    var sn=document.getElementById('sidenav');
-    if(sn)sn.addEventListener('click',function(e){if(e.target.closest('.nav-a'))setOpen(false);});
-    window.addEventListener('resize',function(){if(window.innerWidth>768)setOpen(false);});
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
-</script>
 </body></html>
+
